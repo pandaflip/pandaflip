@@ -47,6 +47,7 @@ import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.block.BlockState;
 
 import net.mcreator.pandisflip.procedures.SkellybackProcedure;
+import net.mcreator.pandisflip.procedures.IteminchestProcedure;
 import net.mcreator.pandisflip.procedures.AISkellyCOnditionProcedure;
 import net.mcreator.pandisflip.itemgroup.PandisflipItemGroup;
 import net.mcreator.pandisflip.item.LegendarySwordShardItem;
@@ -160,6 +161,25 @@ public class SkellyGolemEntity extends PandisflipModElements.ModElement {
 			if (source == DamageSource.DROWN)
 				return false;
 			return super.attackEntityFrom(source, amount);
+		}
+
+		@Override
+		public void onDeath(DamageSource source) {
+			super.onDeath(source);
+			double x = this.getPosX();
+			double y = this.getPosY();
+			double z = this.getPosZ();
+			Entity sourceentity = source.getTrueSource();
+			Entity entity = this;
+			{
+				Map<String, Object> $_dependencies = new HashMap<>();
+				$_dependencies.put("entity", entity);
+				$_dependencies.put("x", x);
+				$_dependencies.put("y", y);
+				$_dependencies.put("z", z);
+				$_dependencies.put("world", world);
+				IteminchestProcedure.executeProcedure($_dependencies);
+			}
 		}
 
 		@Override

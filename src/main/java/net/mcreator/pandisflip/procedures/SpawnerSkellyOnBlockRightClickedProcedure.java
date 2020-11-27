@@ -1,8 +1,6 @@
 package net.mcreator.pandisflip.procedures;
 
 import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.items.CapabilityItemHandler;
 
 import net.minecraft.world.server.ServerWorld;
 import net.minecraft.world.World;
@@ -24,7 +22,6 @@ import net.minecraft.block.Blocks;
 import net.mcreator.pandisflip.entity.SkellyGolemEntity;
 import net.mcreator.pandisflip.PandisflipModElements;
 
-import java.util.concurrent.atomic.AtomicReference;
 import java.util.Map;
 
 @PandisflipModElements.ModElement.Tag
@@ -34,9 +31,9 @@ public class SpawnerSkellyOnBlockRightClickedProcedure extends PandisflipModElem
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("sourceentity") == null) {
-			if (!dependencies.containsKey("sourceentity"))
-				System.err.println("Failed to load dependency sourceentity for procedure SpawnerSkellyOnBlockRightClicked!");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				System.err.println("Failed to load dependency entity for procedure SpawnerSkellyOnBlockRightClicked!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
@@ -59,29 +56,17 @@ public class SpawnerSkellyOnBlockRightClickedProcedure extends PandisflipModElem
 				System.err.println("Failed to load dependency world for procedure SpawnerSkellyOnBlockRightClicked!");
 			return;
 		}
-		Entity sourceentity = (Entity) dependencies.get("sourceentity");
+		Entity entity = (Entity) dependencies.get("entity");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		IWorld world = (IWorld) dependencies.get("world");
-		double diamonds = 0;
-		diamonds = (double) 0;
-		{
-			AtomicReference<IItemHandler> _iitemhandlerref = new AtomicReference<>();
-			sourceentity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> _iitemhandlerref.set(capability));
-			if (_iitemhandlerref.get() != null) {
-				for (int _idx = 0; _idx < _iitemhandlerref.get().getSlots(); _idx++) {
-					ItemStack itemstackiterator = _iitemhandlerref.get().getStackInSlot(_idx).copy();
-					if ((new ItemStack(Blocks.DIAMOND_BLOCK, (int) (1)).getItem() == (itemstackiterator).getItem())) {
-						diamonds = (double) ((diamonds) + (((itemstackiterator)).getCount()));
-					}
-				}
-			}
-		}
-		if (((diamonds) > 0)) {
-			if (sourceentity instanceof PlayerEntity) {
+		if (((entity instanceof PlayerEntity)
+				? ((PlayerEntity) entity).inventory.hasItemStack(new ItemStack(Blocks.DIAMOND_BLOCK, (int) (1)))
+				: false)) {
+			if (entity instanceof PlayerEntity) {
 				ItemStack _stktoremove = new ItemStack(Blocks.DIAMOND_BLOCK, (int) (1));
-				((PlayerEntity) sourceentity).inventory.clearMatchingItems(p -> _stktoremove.getItem() == p.getItem(), (int) 1);
+				((PlayerEntity) entity).inventory.clearMatchingItems(p -> _stktoremove.getItem() == p.getItem(), (int) 1);
 			}
 			world.destroyBlock(new BlockPos((int) x, (int) y, (int) z), false);
 			if (world instanceof World && !world.getWorld().isRemote) {
@@ -105,9 +90,9 @@ public class SpawnerSkellyOnBlockRightClickedProcedure extends PandisflipModElem
 				((ServerWorld) world).spawnParticle(ParticleTypes.NAUTILUS, x, y, z, (int) 15, 3, 3, 3, 1);
 			}
 		} else {
-			if (sourceentity instanceof PlayerEntity && !sourceentity.world.isRemote) {
-				((PlayerEntity) sourceentity)
-						.sendStatusMessage(new StringTextComponent("Sacrifiez un bloc de Diamant pour faire apparaitre le gardien."), (true));
+			if (entity instanceof PlayerEntity && !entity.world.isRemote) {
+				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("Sacrifiez un bloc de Diamant pour faire apparaitre le gardien."),
+						(true));
 			}
 		}
 	}

@@ -201,7 +201,49 @@
       "metadata": {
         "dependencies": [
           {
-            "name": "sourceentity",
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "SkellyKey",
+      "type": "item",
+      "sortid": 13,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "skelly_key"
+    },
+    {
+      "name": "OpenSkellyChest",
+      "type": "procedure",
+      "sortid": 14,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "open_skelly_chest",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
             "type": "entity"
           },
           {
@@ -263,6 +305,7 @@
       "itemGroup.tabpandisflip": "Pandisflip",
       "item.pandisflip.legendary_sword_shard": "Legendary Sword Shard",
       "block.pandisflip.spawner_skelly": "Spawner Skelly",
+      "item.pandisflip.skelly_key": "Skelly Key",
       "item.pandisflip.skelly_golem_spawn_egg": "Skelly Golem Spawn Egg",
       "item.pandisflip.kh_keyblade": "Keyblade",
       "block.pandisflip.legendary_chest": "Legendary Chest"
