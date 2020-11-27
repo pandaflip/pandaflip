@@ -50,7 +50,7 @@ import net.mcreator.pandisflip.procedures.SkellybackProcedure;
 import net.mcreator.pandisflip.procedures.IteminchestProcedure;
 import net.mcreator.pandisflip.procedures.AISkellyCOnditionProcedure;
 import net.mcreator.pandisflip.itemgroup.PandisflipItemGroup;
-import net.mcreator.pandisflip.item.LegendarySwordShardItem;
+import net.mcreator.pandisflip.item.SkellyKeyItem;
 import net.mcreator.pandisflip.PandisflipModElements;
 
 import java.util.Map;
@@ -128,7 +128,7 @@ public class SkellyGolemEntity extends PandisflipModElements.ModElement {
 
 		protected void dropSpecialItems(DamageSource source, int looting, boolean recentlyHitIn) {
 			super.dropSpecialItems(source, looting, recentlyHitIn);
-			this.entityDropItem(new ItemStack(LegendarySwordShardItem.block, (int) (1)));
+			this.entityDropItem(new ItemStack(SkellyKeyItem.block, (int) (1)));
 		}
 
 		@Override

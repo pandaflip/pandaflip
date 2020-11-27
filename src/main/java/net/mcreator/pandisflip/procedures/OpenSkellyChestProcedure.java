@@ -1,6 +1,7 @@
 package net.mcreator.pandisflip.procedures;
 
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.items.CapabilityItemHandler;
 
 import net.minecraft.world.IWorld;
 import net.minecraft.util.text.StringTextComponent;
@@ -8,6 +9,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.Entity;
@@ -18,6 +20,7 @@ import net.mcreator.pandisflip.PandisflipModVariables;
 import net.mcreator.pandisflip.PandisflipModElements;
 
 import java.util.function.Function;
+import java.util.concurrent.atomic.AtomicReference;
 import java.util.Map;
 import java.util.Comparator;
 
@@ -58,6 +61,24 @@ public class OpenSkellyChestProcedure extends PandisflipModElements.ModElement {
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		IWorld world = (IWorld) dependencies.get("world");
+		{
+			ItemStack _setval = (new Object() {
+				public ItemStack getItemStack(BlockPos pos, int sltid) {
+					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
+					TileEntity _ent = world.getTileEntity(pos);
+					if (_ent != null) {
+						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+							_retval.set(capability.getStackInSlot(sltid).copy());
+						});
+					}
+					return _retval.get();
+				}
+			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0)));
+			entity.getCapability(PandisflipModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+				capability.inlastlchest = _setval;
+				capability.syncPlayerVariables(entity);
+			});
+		}
 		if (((entity instanceof PlayerEntity)
 				? ((PlayerEntity) entity).inventory.hasItemStack(new ItemStack(SkellyKeyItem.block, (int) (1)))
 				: false)) {
