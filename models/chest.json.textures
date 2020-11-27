@@ -1,0 +1,16 @@
+{
+  "mappings": {
+    "default": {
+      "map": {
+        "face": "face",
+        "knob": "knob",
+        "top": "top",
+        "devanthaut": "devanthaut",
+        "devantbas": "devantbas",
+        "coté": "cote",
+        "dessous": "dessous"
+      },
+      "name": "default"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "pandisflip:block/legendary_chest"
+    },
+    "facing=east": {
+      "model": "pandisflip:block/legendary_chest",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "pandisflip:block/legendary_chest",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "pandisflip:block/legendary_chest",
+      "y": 270
+    }
+  }
+}

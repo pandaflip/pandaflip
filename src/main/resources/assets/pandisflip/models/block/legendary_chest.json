@@ -1,0 +1,14 @@
+{
+  "parent": "pandisflip:custom/chest",
+  "textures": {
+    "all": "pandisflip:blocks/top",
+    "particle": "pandisflip:blocks/top",
+    "face": "pandisflip:blocks/face",
+    "knob": "pandisflip:blocks/knob",
+    "top": "pandisflip:blocks/top",
+    "devanthaut": "pandisflip:blocks/devanthaut",
+    "devantbas": "pandisflip:blocks/devantbas",
+    "coté": "pandisflip:blocks/cote",
+    "dessous": "pandisflip:blocks/dessous"
+  }
+}

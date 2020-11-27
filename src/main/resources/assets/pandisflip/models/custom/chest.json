@@ -1,0 +1,303 @@
+{
+  "__comment": "Model generated using MrCrayfish's Model Creator (https://mrcrayfish.com/tools?id=mc)",
+  "display": {
+    "gui": {
+      "rotation": [
+        30,
+        45,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        0.625,
+        0.625,
+        0.625
+      ]
+    },
+    "ground": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        3,
+        0
+      ],
+      "scale": [
+        0.25,
+        0.25,
+        0.25
+      ]
+    },
+    "fixed": {
+      "rotation": [
+        0,
+        180,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "head": {
+      "rotation": [
+        0,
+        180,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        315,
+        0
+      ],
+      "translation": [
+        0,
+        2.5,
+        0
+      ],
+      "scale": [
+        0.4,
+        0.4,
+        0.4
+      ]
+    },
+    "thirdperson_righthand": {
+      "rotation": [
+        75,
+        315,
+        0
+      ],
+      "translation": [
+        0,
+        2.5,
+        0
+      ],
+      "scale": [
+        0.375,
+        0.375,
+        0.375
+      ]
+    }
+  },
+  "elements": [
+    {
+      "name": "Base",
+      "from": [
+        1,
+        0,
+        1
+      ],
+      "to": [
+        15,
+        10,
+        15
+      ],
+      "faces": {
+        "north": {
+          "texture": "#devantbas",
+          "uv": [
+            1,
+            5,
+            15,
+            14.75
+          ]
+        },
+        "east": {
+          "texture": "#coté",
+          "uv": [
+            1,
+            5,
+            15,
+            15
+          ]
+        },
+        "south": {
+          "texture": "#coté",
+          "uv": [
+            1,
+            5,
+            15,
+            15
+          ]
+        },
+        "west": {
+          "texture": "#coté",
+          "uv": [
+            1,
+            5,
+            15,
+            15
+          ]
+        },
+        "down": {
+          "texture": "#dessous",
+          "uv": [
+            1,
+            1,
+            15,
+            15
+          ]
+        }
+      }
+    },
+    {
+      "name": "Knob",
+      "from": [
+        7,
+        7,
+        0
+      ],
+      "to": [
+        9,
+        11,
+        1
+      ],
+      "faces": {
+        "north": {
+          "texture": "#knob",
+          "uv": [
+            7,
+            6,
+            5,
+            10
+          ]
+        },
+        "east": {
+          "texture": "#knob",
+          "uv": [
+            7,
+            5.25,
+            7.25,
+            6.25
+          ]
+        },
+        "south": {
+          "texture": "#knob",
+          "uv": [
+            9,
+            6.25,
+            9.5,
+            7.25
+          ]
+        },
+        "west": {
+          "texture": "#knob",
+          "uv": [
+            9.75,
+            7.25,
+            10,
+            8.25
+          ]
+        },
+        "up": {
+          "texture": "#knob",
+          "uv": [
+            7.75,
+            7,
+            7.25,
+            7.25
+          ]
+        },
+        "down": {
+          "texture": "#knob",
+          "uv": [
+            7.25,
+            7,
+            7.75,
+            7.25
+          ]
+        }
+      }
+    },
+    {
+      "name": "Lid",
+      "from": [
+        1,
+        9,
+        1
+      ],
+      "to": [
+        15,
+        14,
+        15
+      ],
+      "faces": {
+        "north": {
+          "texture": "#devanthaut",
+          "uv": [
+            15,
+            6,
+            1,
+            1
+          ],
+          "rotation": 180
+        },
+        "east": {
+          "texture": "#face",
+          "uv": [
+            15,
+            6,
+            1,
+            1
+          ],
+          "rotation": 180
+        },
+        "south": {
+          "texture": "#face",
+          "uv": [
+            15,
+            6,
+            1,
+            1
+          ],
+          "rotation": 180
+        },
+        "west": {
+          "texture": "#face",
+          "uv": [
+            15,
+            6,
+            1,
+            1
+          ],
+          "rotation": 180
+        },
+        "up": {
+          "texture": "#top",
+          "uv": [
+            1,
+            1,
+            15,
+            15
+          ],
+          "rotation": 180
+        }
+      }
+    }
+  ]
+}

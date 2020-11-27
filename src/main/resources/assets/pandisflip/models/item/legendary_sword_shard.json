@@ -1,0 +1,9 @@
+{
+  "parent": "pandisflip:custom/sword_shard",
+  "textures": {
+    "0": "pandisflip:blocks/crystal",
+    "1": "pandisflip:blocks/floaty",
+    "2": "pandisflip:blocks/bidule",
+    "particle": "pandisflip:items/sword_shards"
+  }
+}
